@@ -53,5 +53,5 @@ const Digito = class {
 		}
 	}
 }
-digito = new Digito("012234738");
+digito = new Digito(process.argv[2].toString());
 digito.printLcd();
