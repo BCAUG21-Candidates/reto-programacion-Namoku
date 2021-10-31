@@ -21,7 +21,7 @@ const Digito = class {
 	}
 
 	constructor (digito, size) {
-		size ? this.#size = size : this.#size = [1, 1];
+		(size[0] >= 1 && size[1] >= 1) ? this.#size = size : this.#size = [1, 1];
 		[...digito].forEach(c => this.#digito.push(c))
 		this.#obtenerDigito(this.#size);
 	}
@@ -112,14 +112,7 @@ const Digito = class {
 			console.log(...rows);
 			rows = []
 		}
-		// for (let i = 0; i < 3; i++) {
-		// 	for (let a in this.#lcd)
-		// 		rows.push(this.#lcd[a][i])
-		// 	console.log(...rows);
-		// 	rows = [];
-		// }
 	}
 }
 let digito = new Digito(process.argv[2].toString(), [parseInt(process.argv[3]),parseInt(process.argv[4])]);
 digito.printLcd();
-// console.log(digito.getLcd()[0][1][1])
