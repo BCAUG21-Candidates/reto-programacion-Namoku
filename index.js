@@ -70,7 +70,7 @@ const Digito = class {
 			for (let j = 0; j < (x+2); j ++) {
 				switch (state) {
 					case 1:
-						(j == 0) ? aux[i].push() = "|" : aux[i][j] = " ";
+						(j == 0) ? aux[i][j] = "|" : aux[i][j] = " ";
 						break;
 					case 2:
 						(j == (x+1)) ? aux[i][j] = "|" : aux[i][j] = " ";
@@ -94,7 +94,6 @@ const Digito = class {
 	
 	printLcd () {
 		let rows = [];
-		let aux = []
 		for (let i = 0; i < 5; i++) {
 			for (let j = 0; j < this.#lcd.length; j++){
 				switch (i) {
@@ -106,7 +105,7 @@ const Digito = class {
 					case 1:
 					case 3:
 						for (let k in this.#lcd[j][i]) {
-						aux.push(...this.#lcd[j][i][k])
+						rows.push(...this.#lcd[j][i][k])
 						}
 						break;
 				}
