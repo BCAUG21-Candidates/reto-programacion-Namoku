@@ -21,13 +21,13 @@ const Digito = class {
 	}
 
 	constructor (digito, size) {
-		(size[0] >= 1 && size[1] >= 1) ? this.#size = size : this.#size = [1, 1];
+		size[0] >= 1 ? this.#size = size : this.#size[0] = 1;
+		size[1] >= 1 ? this.#size = size : this.#size[1] = 1;
 		[...digito].forEach(c => this.#digito.push(c))
 		this.#obtenerDigito(this.#size);
 	}
 
 	#obtenerDigito (size) {
-		console.log(size)
 		for (let i in this.#digito) {
 			this.#lcd[i] = [];
 			for (let j in this.#numbers[this.#digito[i]]) {
