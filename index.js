@@ -94,21 +94,20 @@ const Digito = class {
 	
 	printLcd () {
 		let rows = [];
-		for (let i = 0; i < 5; i++) {
+		let state;
+		for (let i = 0; i < (3 + this.#size[1] * 2); i++) {
+			if (i == 0)
+				state = 0
+			else if (i > 0 && i < (2 + this.#size[1] * 2) / 2)
+				state = 1
+			else if (i == (2 + this.#size[1] * 2) / 2)
+				state = 2
+			else if (i == ((3 + this.#size[1] * 2) - 1))
+				state = 4
+			else 
+				state = 3
 			for (let j = 0; j < this.#lcd.length; j++){
-				switch (i) {
-					case 0:
-					case 2:
-					case 4:
-						rows.push(...this.#lcd[j][i])
-						break;
-					case 1:
-					case 3:
-						for (let k in this.#lcd[j][i]) {
-						rows.push(...this.#lcd[j][i][k])
-						}
-						break;
-				}
+				(state == 0 || state == 2 || state == 4) ? rows.push(...this.#lcd[j][state]) : rows.push(...this.#lcd[j][state][0]);
 			}
 			console.log(...rows);
 			rows = []
