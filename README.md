@@ -1,5 +1,11 @@
 ![BrightCoders Logo](img/logo-bc.png)
-
+# Funcionamiento
+Es importante tener instalado Node.
+Para usarlo, se tiene que hacer con el siguiente comando:
+```
+node index.js numero ancho alto
+```
+Si no se ingresa ningún valor de ancho y alto se tendrá por defecto los valores (1, 1).
 # Number to LCD
 
 ![cover](img/cover.jpg)
